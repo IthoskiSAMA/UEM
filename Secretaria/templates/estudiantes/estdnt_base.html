@@ -1,0 +1,500 @@
+{% extends 'sctr_base.html' %}
+{% load static %}
+
+{% block title %}Estudiantes{% endblock title %}
+
+{% block content %}
+
+<div class="pagetitle">
+	<h1>Estudiantes <span>/ {% block estdnt_base_title_action %}{% endblock estdnt_base_title_action %}</span></h1>
+</div>
+    
+<section class="section dashboard">
+	<div class="row">
+
+        {% block estdnt_base_seccion_general %}
+        {% endblock estdnt_base_seccion_general %}
+
+		<section class="col-12" id="seccion-info-academica-1-2" hidden>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Información académica 1/2</h5>
+
+					<form class="form" id="form-info-academica">
+						{% csrf_token %}
+						<div class="row">
+							<div class="col-4 mb-3">
+								<label for="inputFechaIngreso" class="form-label">Fecha de ingreso a la institución</label>
+								<input type="date" 
+									class="form-control" 
+									id="inputFechaIngreso" 
+									name="inputFechaIngreso">
+							</div>
+							<div class="col-4 mb-3">
+								<label for="inputNumeroCarne" class="form-label">Número de carné</label>
+								<input type="text" 
+									class="form-control" 
+									id="inputNumeroCarne" 
+									maxlength="10"
+									name="inputNumeroCarne">
+							</div>
+							<div class="col-4 mb-3">
+								<label for="selecModalidaEstudios" class="form-label">Modalidad de estudios</label>
+								<select class="form-select" 
+									name="selecModalidaEstudios" 
+									id="selecModalidaEstudios">
+									{% for modalidad_estudio in modalidad_estudios %}
+									<option value="{{ modalidad_estudio.id }}">{{ modalidad_estudio.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4 mb-3">
+								<label for="selecJornada" class="form-label">Jornada</label>
+								<select class="form-select" name="selecJornada" id="selecJornada">
+									{% for jornada in jornadas %}
+									<option value="{{ jornada.id }}">{{ jornada.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-4 mb-3">
+								<label for="selecMatricula" class="form-label">Nº de matrícula</label>
+								<select class="form-select" name="selecMatricula" id="selecMatricula">
+									{% for matricula in numeroMatriculas %}
+									<option value="{{ matricula.id }}">{{ matricula.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-4 mb-3">
+								<label for="selecEstadoGeneral" class="form-label">
+									Estado general  
+									<i class="fa-solid fa-circle-info" data-bs-toggle="tooltip" data-bs-placement="top" 
+									data-bs-title="El estado general es para aquellos estudiantes que se graduaron, se retiraron o que aún estén estudiando"></i>
+								</label>
+								<select class="form-select" name="selecEstadoGeneral" id="selecEstadoGeneral">
+									{% for estado in estados %}
+									<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class="d-flex justify-content-end">
+							<button type="submit" class="btn btn-primary" id="btn-guardar-info-academica"><i class="ri-save-fill me-1"></i> Guardar</button>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+		</section>
+
+		<section class="col-12" id="seccion-info-academica-2-2" hidden>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Información académica 2/2</h5>
+					<div class="d-flex align-items-center mb-2">
+						<p class="m-0 me-3">Historial de cursos</p>
+						<button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#verticalycentered">Agregar</button>
+					</div>
+
+					<form class="form" id="form-info-curso">
+						{% csrf_token %}
+						<!-- Vertically centered Modal -->
+						<div class="modal fade" id="verticalycentered" tabindex="-1">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">Agregar curso</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+
+									<div class="modal-body">
+										<div class="row mb-2">
+											<div class="col-6">
+												<label for="selecGrado"
+													data-bs-toggle="tooltip" data-bs-placement="top" 
+													data-bs-title="Año escolar">Grado</label>
+												<select name="selecGrado" id="selecGrado" class="form-select">
+													{% for grado in grados %}
+													<option value="{{ grado.id }}">{{ grado.nombre }}</option>
+													{% endfor %}
+												</select>
+											</div>
+											<div class="col-6">
+												<label for="selecNivel">Nivel</label>
+												<select name="selecNivel" id="selecNivel" class="form-select">
+													{% for nivel in niveles %}
+													<option value="{{ nivel.id }}">{{ nivel.nombre }}</option>
+													{% endfor %}
+												</select>
+											</div>
+										</div>
+										<div class="row mb-2">
+											<div class="col-6">
+												<label for="selecParalelo">Paralelo</label>
+												<select name="selecParalelo" id="selecParalelo" class="form-select">
+													{% for paralelo in paralelos %}
+													<option value="{{ paralelo.id }}">{{ paralelo.nombre }}</option>
+													{% endfor %}
+												</select>
+											</div>
+											<div class="col-6">
+												<label for="selecEspecialidad">Especialidad</label>
+												<select name="selecEspecialidad" id="selecEspecialidad" class="form-select">
+													{% for especialidad in especialidades %}
+													<option value="{{ especialidad.id }}">{{ especialidad.nombre }}</option>
+													{% endfor %}
+												</select>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												<label for="selecPeriodo">Periodo</label>
+												<select name="selecPeriodo" id="selecPeriodo" class="form-select">
+													{% for periodo in periodos %}
+													<option value="{{ periodo.id }}">{{ periodo.nombre }}</option>
+													{% endfor %}
+												</select>
+											</div>
+											<div class="col-6">
+												<label for="selecEstado">Estado</label>
+												<select name="selecEstado" id="selecEstado" class="form-select">
+													{% for estado in estados %}
+													<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+													{% endfor %}
+												</select>
+											</div>
+										</div>
+									</div>
+									
+									<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+									<button type="submit" class="btn btn-primary" id="btn-agregar-curso">Agregar</button>
+									</div>
+								</div>
+							</div>
+						</div><!-- End Vertically centered Modal-->
+					</form>
+
+					<table class="table" id="tabla-cursos">
+						<thead class="table-dark">
+							<tr>
+								<th scope="col">Grado</th>
+								<th scope="col">Nivel</th>
+								<th scope="col">Paralelo</th>
+								<th scope="col">Especialidad</th>
+								<th scope="col">Año</th>
+								<th scope="col">Estado</th>
+								<th scope="col">Acciones</th>
+							</tr>
+						</thead>
+						<tbody id="tabla-cuerpo-cursos"></tbody>
+					</table>
+				</div>
+			</div>
+		</section>
+		
+		<section class="col-12" id="seccion-anexos" hidden>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Anexos</h5>
+
+					<form class="form" id="form-anexo-estudiante">
+						{% csrf_token %}
+						<div class="row mb-3">
+							<div class="col-sm-3">
+								<input class="form-control" type="file" accept=".pdf" id="inputAnexo" name="inputAnexo" placeholder="Elija un archivo" required/>
+							</div>
+							<div class="col-sm-3">
+								<select name="selecTipoAnexo" id="selecTipoAnexo" class="form-select" required>
+									{% for tipo_anexo in tipos_anexos %}
+									<option value="{{ tipo_anexo.id }}">{{ tipo_anexo.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<select name="selecPeriodoAnexo" id="selecPeriodoAnexo" class="form-select" required>
+									{% for periodo in periodos %}
+									<option value="{{ periodo.id }}">{{ periodo.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-sm-2">
+								<button id="btnAgregarAnexo" type="submit" class="btn btn-primary">Agregar</button>
+							</div>
+						</div>
+					</form>
+					
+					<!-- Default Tabs -->
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item" role="presentation">
+							<button class="nav-link active" id="promocion-tab" data-bs-toggle="tab" data-bs-target="#promocion" type="button" role="tab" aria-controls="promocion" aria-selected="true">Promoción</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="notasppe1-tab" data-bs-toggle="tab" data-bs-target="#notasppe1" type="button" role="tab" aria-controls="notasppe1" aria-selected="false" tabindex="-1">Notas PPE 1</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="notasppe2-tab" data-bs-toggle="tab" data-bs-target="#notasppe2" type="button" role="tab" aria-controls="notasppe2" aria-selected="false" tabindex="-1">Notas PPE 2</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="actagrado-tab" data-bs-toggle="tab" data-bs-target="#actagrado" type="button" role="tab" aria-controls="actagrado" aria-selected="false" tabindex="-1">Acta de grado</button>
+						</li>
+						<li class="nav-item" role="presentation">
+							<button class="nav-link" id="titulo-tab" data-bs-toggle="tab" data-bs-target="#titulo" type="button" role="tab" aria-controls="titulo" aria-selected="false" tabindex="-1">Título</button>
+						</li>
+					</ul>
+					
+					<div class="tab-content mt-3" id="myTabContent">
+						<div class="tab-pane fade show active" id="promocion" role="tabpanel" aria-labelledby="promocion-tab">
+							<table class="table" id="tablePromocion">
+								<thead class="table-promociones">
+									<tr>
+										<th scope="col">Nombre del archivo</th>
+										<th scope="col">Periodo</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody id="tablebodyPromocion"></tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="notasppe1" role="tabpanel" aria-labelledby="notasppe1-tab">
+							<table class="table" id="tableNotasPPE1">
+								<thead class="table-notas-ppe-1">
+									<tr>
+										<th scope="col">Nombre del archivo</th>
+										<th scope="col">Periodo</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody id="tablebodyNotasPPE1"></tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="notasppe2" role="tabpanel" aria-labelledby="notasppe2-tab">
+							<table class="table" id="tableNotasPPE2">
+								<thead class="table-notas-ppe-2">
+									<tr>
+										<th scope="col">Nombre del archivo</th>
+										<th scope="col">Periodo</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody id="tablebodyNotasPPE2"></tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="actagrado" role="tabpanel" aria-labelledby="actagrado-tab">
+							<table class="table" id="tableActaGrado">
+								<thead class="table-actas-grado">
+									<tr>
+										<th scope="col">Nombre del archivo</th>
+										<th scope="col">Periodo</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody id="tablebodyActaGrado"></tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="titulo" role="tabpanel" aria-labelledby="titulo-tab">
+							<table class="table" id="tableTitulo">
+								<thead class="table-titulos">
+									<tr>
+										<th scope="col">Nombre del archivo</th>
+										<th scope="col">Periodo</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody id="tablebodyTitulo"></tbody>
+							</table>
+						</div>
+					</div><!-- End Default Tabs -->
+
+				</div>
+			</div>
+		</section>
+
+		<section class="col-12" id="seccion-info-representante" hidden>
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Información del representante</h5>
+
+					<form class="form" id="form-info-representante">
+						{% csrf_token %}
+						<div class="row mb-3">
+							<div class="col-3">
+								<label for="inputCedulaRep" class="form-label">Cédula *</label>
+								<input type="text" class="form-control" id="inputCedulaRep" name="inputCedulaRep" onkeypress="soloNumerosLetras(event)" maxlength="13" required>
+							</div>
+							<div class="col-3">
+								<label for="inputApellidosRep" class="form-label">Apellidos *</label>
+								<input type="text" class="form-control" id="inputApellidosRep" name="inputApellidosRep" onkeypress="soloLetras(event)" maxlength="60" required>
+							</div>
+							<div class="col-3">
+								<label for="inputNombresRep" class="form-label">Nombres *</label>
+								<input type="text" class="form-control" id="inputNombresRep" name="inputNombresRep" onkeypress="soloLetras(event)" maxlength="60" required>
+							</div>
+							<div class="col-3">
+								<label for="selecPaisOrigenRep" class="form-label">País de origen</label>
+								<select class="form-select" name="selecPaisOrigenRep" id="selecPaisOrigenRep">
+									{% for pais in paises %}
+									<option value="{{pais.id}}">{{pais.nombre}}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-3">
+								<label for="inputTelefonoRep" class="form-label">Teléfono</label>
+								<input type="text" class="form-control" id="inputTelefonoRep" name="inputTelefonoRep" maxlength="10" onkeypress="soloTelefono(event)">
+							</div>
+							<div class="col-3">
+								<label for="selecProvinciaRep" class="form-label">Provincia</label>
+								<select class="form-select" name="selecProvinciaRep" id="selecProvinciaRep">
+									{% for provincia in provincias %}
+									    <option value="{{ provincia.id }}">{{ provincia.nombre }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="col-3">
+								<label for="selecCiudadRep" class="form-label">Ciudad</label>
+								<select class="form-select" name="selecCiudadRep" id="selecCiudadRep">
+                                    {% for ciudad in ciudades %}
+                                    <option value="{{ ciudad.id }}">{{ ciudad.nombre }}</option>
+                                    {% endfor %}
+								</select>
+							</div>
+							<div class="col-3">
+								<label for="inputDireccionRep" class="form-label">Dirección</label>
+								<input type="text" class="form-control" name="inputDireccionRep" id="inputDireccionRep" maxlength="60" onkeypress="soloDirecciones(event)">
+							</div>
+						</div>
+
+						<div class="d-flex justify-content-end">
+							<button type="submit" class="btn btn-primary" id="btn-guardar-info-representante"><i class="ri-save-fill me-1"></i> Guardar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
+        <!--Modal Ejecutar acciones-->
+        <div class="modal fade" id="modalDeAcciones" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDeAccionesLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <i class="fa-solid  icon-modal me-2" id="iconModalDeAcciones"></i>
+                        <h5 class="modal-title" id="titleModalDeAcciones"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="bodyModalDeAcciones"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" id="btnAccion" data-bs-dismiss="modal"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fin Modal Ejecutar acciones-->
+
+        <!--Modal informativo-->
+        <div class="modal fade" id="modalInformativo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalInformativoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <i class="fa-solid  icon-modal me-2" id="iconModalInformativo"></i>
+                        <h5 class="modal-title" id="titleModalInformativo"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="bodyModalInformativo"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fin Modal informativo-->
+		
+		<form class="form" id="form-editar-curso" method="post">
+			{% csrf_token %}
+			<div class="modal fade" id="modalEditarCurso" tabindex="-1">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Editar curso</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+	
+						<div class="modal-body">
+							<input type="text" id="curso_id" name="curso_id" value="0" hidden>
+							<div class="row mb-2">
+								<div class="col-6">
+									<label for="selecGrado"
+										data-bs-toggle="tooltip" data-bs-placement="top" 
+										data-bs-title="Año escolar">Grado</label>
+									<select name="selecGrado" class="form-select">
+										{% for grado in grados %}
+										<option value="{{ grado.id }}">{{ grado.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-6">
+									<label for="selecNivel">Nivel</label>
+									<select name="selecNivel" class="form-select">
+										{% for nivel in niveles %}
+										<option value="{{ nivel.id }}">{{ nivel.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="row mb-2">
+								<div class="col-6">
+									<label for="selecParalelo">Paralelo</label>
+									<select name="selecParalelo" class="form-select">
+										{% for paralelo in paralelos %}
+										<option value="{{ paralelo.id }}">{{ paralelo.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-6">
+									<label for="selecEspecialidad">Especialidad</label>
+									<select name="selecEspecialidad" class="form-select">
+										{% for especialidad in especialidades %}
+										<option value="{{ especialidad.id }}">{{ especialidad.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6">
+									<label for="selecPeriodo">Periodo</label>
+									<select name="selecPeriodo" class="form-select">
+										{% for periodo in periodos %}
+										<option value="{{ periodo.id }}">{{ periodo.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-6">
+									<label for="selecEstado">Estado</label>
+									<select name="selecEstado" class="form-select">
+										{% for estado in estados %}
+										<option value="{{ estado.id }}">{{ estado.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary" id="btn-editar-curso" data-bs-dismiss="modal">Editar</button>
+						</div>
+					</div>
+				</div>
+			</div><!-- End Vertically centered Modal-->
+		</form>
+	</div>
+</section>
+
+{% endblock content %}

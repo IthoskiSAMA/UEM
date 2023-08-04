@@ -1,0 +1,48 @@
+/*Iconos de acciones*/
+i {
+    font-size: 1.1rem;
+}
+i.icon{
+    color: white;
+    font-size: 1.4rem;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.fa-file-pdf {
+    background-color: #369d81;
+}
+.fa-pen-to-square {
+    background-color: #0d6efd;
+}
+.fa-trash-can {
+    background-color: #f33644;
+}
+.fa-eye {
+    background-color: #3d4249;
+}
+/*Fin de iconos de acciones*/
+
+
+
+i.icon-modal {
+    font-size: 2rem;
+}
+.fa-triangle-exclamation {
+    color: #ed760f;
+}
+.fa-circle-exclamation {
+    color: #f33644;
+}
+.fa-square-info {
+    color: #146ebe;
+}
+.fa-question {
+    color: #089c28;
+}
+.fa-circle-check {
+    color: #198754;
+}

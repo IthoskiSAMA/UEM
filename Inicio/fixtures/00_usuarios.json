@@ -1,0 +1,56 @@
+[
+    {
+        "model": "Inicio.Rol",
+        "pk": 1,
+        "fields": {
+            "nombre": "Secretario(a)"
+        }
+    },
+    {
+        "model": "Inicio.Rol",
+        "pk": 2,
+        "fields": {
+            "nombre": "TICs"
+        }
+    },
+    {
+        "model": "Inicio.Rol",
+        "pk": 3,
+        "fields": {
+            "nombre": "SuperUsuario"
+        }
+    },
+
+
+
+    {
+        "model": "Inicio.Usuario",
+        "pk": 1,
+        "fields": {
+            "nombre": "Darlyn Buenaño",
+            "rol": 1,
+            "correo": "secretario@gmail.com",
+            "password": "123456"
+        }
+    },
+    {
+        "model": "Inicio.Usuario",
+        "pk": 2,
+        "fields": {
+            "nombre": "Darlyn Buenaño",
+            "rol": 1,
+            "correo": "tics@gmail.com",
+            "password": "123456"
+        }
+    },
+    {
+        "model": "Inicio.Usuario",
+        "pk": 3,
+        "fields": {
+            "nombre": "Darlyn Buenaño",
+            "rol": 1,
+            "correo": "superusuario@gmail.com",
+            "password": "123456"
+        }
+    }
+]

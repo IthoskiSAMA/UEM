@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+	<title>{% block title %}{% endblock title %}</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+
+	<!-- Favicons -->
+	<link href="{% static 'img/favicon.png' %}" rel="icon">
+	<link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.gstatic.com" rel="preconnect">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+
+	<!-- Vendor CSS Files -->
+	<link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/quill/quill.snow.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/quill/quill.bubble.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/simple-datatables/style.css' %}" rel="stylesheet">
+
+	<link href="{% static 'vendor/bootstrap_5.0.2/css/bootstrap.min.css' %}" rel="stylesheet">
+	<link href="{% static 'vendor/fontawesome/css/all.min.css' %}" rel="stylesheet">
+
+	<!-- Template Main CSS File -->
+	<link href="{% static 'css/icons.css' %}" rel="stylesheet">
+	<link href="{% static 'css/secretaria/style.css' %}" rel="stylesheet">
+	<link href="{% static 'css/style_general.css' %}" rel="stylesheet">
+
+	{% block css %}
+	{% endblock css %}
+</head>
+
+<body>
+	<header id="header" class="header fixed-top d-flex align-items-center">
+
+		<div class="d-flex align-items-center justify-content-between">
+			<a href="{% url 'tablero-secretaria' %}" class="logo d-flex align-items-center">
+				<!--<img src="{% static 'img/logo.png' %}" alt="">-->
+				<span class="d-none d-lg-block">U.E. Mocache</span>
+			</a>
+			<i class="bi bi-list toggle-sidebar-btn"></i>
+		</div>
+
+		<nav class="header-nav ms-auto">
+			<ul class="d-flex align-items-center">
+
+				<li class="nav-item dropdown pe-3">
+
+					<a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+						<img src="{% static 'img/profile-img.jpg' %}" alt="Profile" class="rounded-circle">
+						<span class="d-none d-md-block dropdown-toggle ps-2">{{ request.session.usuarioNombre }}</span>
+					</a>
+
+					<ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+						<li class="dropdown-header">
+							<h6>{{ request.session.usuarioNombre }}</h6>
+							<span>{{ request.session.usuarioRol }}</span>
+						</li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li>
+							<a class="dropdown-item d-flex align-items-center" href="{% url 'perfil' %}">
+								<i class="bi bi-person"></i>
+								<span>Perfil</span>
+							</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li>
+							<a class="dropdown-item d-flex align-items-center" href="{% url 'configuracion-cuenta' %}">
+								<i class="bi bi-gear"></i>
+								<span>Configuración de la cuenta</span>
+							</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li>
+							<a class="dropdown-item d-flex align-items-center" href="{% url 'manual-usuario' %}">
+								<i class="bi bi-question-circle"></i>
+								<span>Manual de usuario</span>
+							</a>
+						</li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li>
+							<a class="dropdown-item d-flex align-items-center" href="{% url 'cerrar-sesion' %}">
+								<i class="bi bi-box-arrow-right"></i>
+								<span>Salir</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+
+	</header>
+
+	<aside id="sidebar" class="sidebar">
+		<ul class="sidebar-nav" id="sidebar-nav">
+
+			<li class="nav-item">
+				<a class="nav-link active" href="{% url 'tablero-secretaria' %}">
+					<i class="bi bi-grid"></i>
+					<span>Tablero</span>
+				</a>
+			</li>
+
+			<li class="nav-heading">CAMPUS</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'estudiantes-secretaria' %}">
+					<i class="fa-light fa-graduation-cap"></i>
+					<span>Estudiantes</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'docentes-secretaria' %}">
+					<i class="fa-light fa-chalkboard-user"></i>
+					<span>Docentes</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'autoridades-secretaria' %}">
+					<i class="fa-light fa-user-tie"></i>
+					<span>Autoridades</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<div class="nav-link collapsed" data-bs-target="#institucion-nav" data-bs-toggle="collapse">
+					<i class="fa-light fa-building"></i>
+					<span>Institución</span>
+					<i class="bi bi-chevron-down ms-auto"></i>
+				</div>
+				<ul id="institucion-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+					<li>
+						<a href="{% url 'institucion-about-secretaria' %}">
+							<i class="bi bi-circle"></i><span>Sobre nosotros</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'institucion-contacto-secretaria' %}">
+							<i class="bi bi-circle"></i><span>Contacto</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'institucion-blogs-secretaria' %}">
+							<i class="bi bi-circle"></i><span>Blogs</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="nav-item">
+				<div class="nav-link collapsed" data-bs-target="#reportes-nav" data-bs-toggle="collapse">
+					<i class="fa-solid fa-chart-line"></i>
+					<span>Reportes</span>
+					<i class="bi bi-chevron-down ms-auto"></i>
+				</div>
+				<ul id="reportes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+					<li>
+						<a href="{% url 'reportes-x-estudiantes-secretaria' %}">
+							<i class="bi bi-circle"></i><span>Estudiantes</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'reportes-x-docentes-secretaria' %}">
+							<i class="bi bi-circle"></i><span>Docentes</span>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'reportes-x-autoridades-secretaria' %}">
+							<i class="bi bi-circle"></i><span>Autoridades</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="nav-heading">AYUDA</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'manual-usuario' %}">
+					<i class="bi bi-menu-button-wide"></i>
+					<span>Manual de usuario</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'patrocinadores' %}">
+					<i class="bi bi-menu-button-wide"></i>
+					<span>Patrocinadores</span>
+				</a>
+			</li>
+
+			<li class="nav-heading">CUENTA</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'perfil' %}">
+					<i class="bi bi-menu-button-wide"></i>
+					<span>Perfil</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'configuracion-cuenta' %}">
+					<i class="bi bi-menu-button-wide"></i>
+					<span>Configuración</span>
+				</a>
+			</li>
+
+			<li class="nav-item">
+				<a class="nav-link" href="{% url 'cerrar-sesion' %}">
+					<i class="fa-light fa-person-running"></i>
+					<span>Salir</span>
+				</a>
+			</li>
+		</ul>
+	</aside><!-- End Sidebar-->
+
+	<main id="main" class="main">
+		{% block content %}
+		{% endblock content %}
+	</main>
+
+	<!-- Vendor JS Files -->
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	
+	<!-- <script src="{% static 'vendor/quill/quill.min.js' %}"></script> -->
+	<script src="{% static 'vendor/simple-datatables/simple-datatables.js' %}"></script>
+	<!-- <script src="{% static 'vendor/tinymce/tinymce.min.js' %}"></script> -->
+
+	<script src="{% static 'vendor/jquery/jquery-3.4.1.min.js' %}"></script>
+
+	<!-- Template Main JS File -->
+	<script src="{% static 'js/main.js' %}"></script>
+
+	<script src="{% static 'js/global.js' %}"></script>
+
+	{% block js %}
+	{% endblock js %}
+
+</body>
+
+</html>

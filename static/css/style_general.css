@@ -1,0 +1,9 @@
+.input-success {
+    background-color: rgba(39, 228, 14, 0.16);
+    border: 1px solid rgb(39, 228, 14);
+}
+
+.input-error {
+    background-color: rgba(228, 14, 14, 0.16);
+    border: 1px solid rgb(228, 14, 14);
+}

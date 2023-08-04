@@ -1,0 +1,158 @@
+{% extends 'estudiantes/estdnt_base.html' %}
+{% load static %}
+
+{% block estdnt_base_title_action %}
+Agregar
+{% endblock estdnt_base_title_action %}
+
+{% block estdnt_base_seccion_general %}
+	<section class="col-12" id="seccion-info-general">
+		<div class="row">
+
+			<div class="col-8">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Información general</h5>
+		
+						<!--Formulario datos generales-->
+						<form id="form-datos-generales" method="post">
+							{% csrf_token %}
+							<div class="row">
+								<div class="col-4 mb-3">
+									<label for="inputCedula" class="form-label">Cédula *</label>
+									<input type="text" class="form-control" id="inputCedula" name="inputCedula" maxlength="13" onkeypress="soloNumerosLetras(event)" required>
+								</div>
+								<div class="col-4 mb-3">
+									<input type="text" class="form-control" id="estudiante_id" name="estudiante_id" value="0" hidden>
+									<label for="inputApellidos" class="form-label">Apellidos *</label>
+									<input type="text" class="form-control" id="inputApellidos" name="inputApellidos" maxlength="60" onkeypress="soloLetras(event)" required>
+								</div>
+								<div class="col-4 mb-3">
+									<label for="inputNombres" class="form-label">Nombres *</label>
+									<input type="text" class="form-control" id="inputNombres" name="inputNombres" maxlength="60" onkeypress="soloLetras(event)" required>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-4 mb-3">
+									<label for="selecPaisOrigen" class="form-label">País de origen</label>
+									<select class="form-select" name="selecPaisOrigen" id="selecPaisOrigen">
+										{% for pais in paises %}
+										<option value="{{pais.id}}">{{pais.nombre}}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-4 mb-3">
+									<label for="inputNacimiento" class="form-label">Fecha de nacimiento</label>
+									<input type="date" class="form-control" id="inputNacimiento" name="inputNacimiento">
+								</div>
+								<div class="col-4 mb-3">
+									<label for="inputCorreo" class="form-label">Correo electrónico</label>
+									<input type="email" class="form-control" id="inputCorreo" name="inputCorreo" maxlength="100" onkeypress="soloCorreo(event)">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-4 mb-3">
+									<label for="selecGenero" class="form-label">Género</label>
+									<select class="form-select" name="selecGenero" id="selecGenero">
+										{% for genero in generos %}
+										<option value="{{genero.id}}">{{genero.nombre}}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-4 mb-3">
+									<label for="selecEstadoCivil" class="form-label">Estado civíl</label>
+									<select class="form-select" name="selecEstadoCivil" id="selecEstadoCivil">
+										{% for estado_civil in estados_civiles %}
+										<option value="{{estado_civil.id}}">{{estado_civil.nombre}}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-4 mb-3">
+									<label for="selecDiscapacidad" class="form-label">Discapacidad</label>
+									<select class="form-select" name="selecDiscapacidad" id="selecDiscapacidad">
+										{% for discapacidad in discapacidades %}
+										<option value="{{discapacidad.id}}">{{discapacidad.nombre}}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-4 mb-3">
+									<label for="selecEtnia" class="form-label">Etnia</label>
+									<select class="form-select" name="selecEtnia" id="selecEtnia">
+										{% for etnia in etnias %}
+										<option value="{{etnia.id}}">{{etnia.nombre}}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-4">
+									<label for="selecProvincia" class="form-label">Provincia</label>
+									<select class="form-select" name="selecProvincia" id="selecProvincia">
+										{% for provincia in provincias %}
+										<option value="{{ provincia.id }}">{{ provincia.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+								<div class="col-4">
+									<label for="selecCiudad" class="form-label">Ciudad</label>
+									<select class="form-select" name="selecCiudad" id="selecCiudad">
+										{% for ciudad in ciudades %}
+										<option value="{{ ciudad.id }}">{{ ciudad.nombre }}</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-4 mb-3">
+									<label for="inputTelefono" class="form-label">Telefono</label>
+									<input type="phone" class="form-control" id="inputTelefono" name="inputTelefono" onkeypress="soloTelefono(event)" maxlength="10">
+								</div>
+								<div class="col-8 mb-3">
+									<label for="inputDireccion" class="form-label">Dirección</label>
+									<input type="text" class="form-control" name="inputDireccion" id="inputDireccion" maxlength="150" onkeypress="soloDirecciones(event)">
+								</div>
+							</div>
+							<div class="d-flex justify-content-end">
+								<button type="submit" class="btn btn-primary" id="btnGuardarInfoGeneral" disabled><i class="ri-save-fill me-1"></i> Guardar</button>
+							</div>
+
+						</form>
+						<!--Fin formulario datos generales-->
+					</div>
+				</div>
+			</div>
+
+			<div class="col-4">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Foto de perfil</h5>
+						<!--Formulario foto perfil-->
+						<form id="form-foto-perfil">
+							{% csrf_token %}
+							<div class="d-flex justify-content-center img-background mb-2">
+								<img src="{% static 'img/fondo_fotos.png' %}"
+									id="imgSubida" class="card-img-top" alt="...">
+							</div>
+							<input type="file" accept="image/png,image/jpeg,image/jpg" class="btn btn-secondary" name="inputFotoPerfilEstudiante" id="inputFotoPerfilEstudiante" value="Subir foto" hidden>
+							<button type="button" class="btn btn-secondary w-100 mb-2" id="btnSubirFoto">Subir foto</button>
+							<button type="submit" class="btn btn-primary w-100" id="btnSubmitFotoPerfil" hidden>Guardar foto</button>
+						</form>
+						<!--Fin formulario foto perfil-->
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</section>
+{% endblock estdnt_base_seccion_general %}
+
+
+{% block js %}
+	<script src="{% static 'js/estudiante/acciones-estudiante.js' %}"></script>	
+	<script src="{% static 'js/estudiante/agregar-estudiante.js' %}"></script>
+{% endblock js %}

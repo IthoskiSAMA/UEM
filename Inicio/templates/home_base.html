@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>UEM</title>
+
+	<link href="{% static 'img/favicon.ico' %}" rel="icon">
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+		rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+	<link href="{% static 'css/inicio/style_home.css' %}" rel="stylesheet">
+</head>
+
+<body>
+	<header id="header" class="fixed-top">
+		<div class="container d-flex align-items-center">
+
+			<h1 class="logo me-auto"><a href="{% url 'home' %}">UE Mocache</a></h1>
+
+			<nav id="navbar" class="navbar order-last order-lg-0">
+				<ul>
+					<li><a href="{% url 'home' %}" class="active">Inicio</a></li>
+					<li><a href="{% url 'about' %}" class="">Sobre nosotros</a></li>
+					<li><a href="{% url 'contacto' %}" class="">Contacto</a></li>
+					<li><a href="{% url 'blog' %}" class="">Blog</a></li>
+				</ul>
+				<i class="bi bi-list mobile-nav-toggle"></i>
+			</nav>
+
+			<a href="{% url 'login' %}" class="get-started-btn">Iniciar sesión</a>
+
+		</div>
+	</header>
+	
+	{% block home_block_section %}
+	{% endblock home_block_section %}
+
+	{% block home_block_main %}
+	{% endblock home_block_main %}
+
+	<footer id="footer">
+
+		<div class="pt-5 pb-4">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-3 col-md-6">
+						<h3>UE Mocache</h3>
+						<p>
+							Av. km 1 vía Quevedo<br>
+							Mocache, Los Ríos<br>
+							Ecuador<br><br>
+							<strong>Teléfono:</strong> 052 707 268<br>
+							<strong>Correo:</strong> colegiomocache@yahoo.es<br>
+						</p>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<h4>Enlaces útiles</h4>
+						<ul class="list-unstyled">
+							<li><a href="#">Inicio</a></li>
+							<li><a href="#">Sobre nosotros</a></li>
+							<li><a href="#">Contacto</a></li>
+							<li><a href="#">Terminos y condiciones</a></li>
+							<li><a href="#">Políticas de privacidad</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<h4>Patrocinadores</h4>
+						<ul class="list-unstyled">
+							<li><a href="#">Universidad Técnica Estatal de Quevedo</a></li>
+							<li><a href="#">Facultad de Ciencias de la Ingeniería</a></li>
+							<li><a href="#">Unidad Educativa Mocache</a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-3 col-md-6">
+						<h4>Equipo de desarrollo</h4>
+						<ul class="list-unstyled">
+							<li><a href="https://www.linkedin.com/in/darlyn-buenano-vera/">Darlyn Buenaño Vera</a></li>
+							<li><a href="#">Diego Capurro</a></li>
+							<li><a href="#">Eduardo Gálvez</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		
+	</footer>
+
+	<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+	<script src="{% static 'js/inicio/main.js' %}"></script>
+
+</body>
+
+</html>

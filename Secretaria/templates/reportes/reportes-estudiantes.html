@@ -1,0 +1,320 @@
+{% extends 'sctr_base.html' %}
+{% load static %}
+
+
+{% block title %}Reportes por estudiante{% endblock title %}
+
+
+{% block content %}
+<div class="pagetitle">
+	<h1>Reportes por estudiante</h1>
+</div>
+
+<section class="section">
+	<!--Gráficas de estudiantes-->
+	<div class="row">
+
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex align-items-center justify-content-between">
+						<h5 class="card-title">Cantidad de estudiantes</h5>
+						<select class="form-select w-auto">
+							<option value="1" selected>2022 - 2023</option>
+							<option value="2">2021 - 2022</option>
+							<option value="3">2020 - 2021</option>
+							<option value="4">2019 - 2020</option>
+						</select>
+					</div>
+					<div id="verticalBarChart" style="min-height: 400px;" class="echart"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6">
+			<div class="card">
+				<div class="card-body">
+					<div class="d-flex align-items-center justify-content-between">
+						<h5 class="card-title">Condiciones según su estado</h5>
+						<select class="form-select w-auto">
+							<option value="1" selected>2022 - 2023</option>
+							<option value="2">2021 - 2022</option>
+							<option value="3">2020 - 2021</option>
+							<option value="4">2019 - 2020</option>
+						</select>
+					</div>
+					<div id="pieChart" style="min-height: 400px;" class="echart"></div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!--Fin Gráficas de estudiantes-->
+
+	<!--Generador de reportes por formato-->
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">Generador de reportes</h5>
+					<p>Seleccione las opciones que crea conveniente para formar un reporte personalizado.</p>
+
+					<form action="" method="post">
+						<div class="row">
+							<div class="col-4">
+								<div class="row">
+									<div class="col-6">
+										<!--Filtro: Periodo-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Periodo</p>
+											<div>
+												<div class="d-flex me-2">
+													<select class="form-select" name="" id="">
+														<option value="1" selected>2022 - 2023</option>
+														<option value="1" selected>2021 - 2022</option>
+														<option value="1" selected>2020 - 2021</option>
+														<option value="1" selected>2019 - 2020</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<!--Filtro: Nacionalidad-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Nacionalidad</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Ecuatoriana
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Extranjera
+												</div>
+											</div>
+										</div>
+										<!--Filtro: Provincia-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Provincia</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Los Ríos
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Otras provincias
+												</div>
+											</div>
+										</div>
+										<!--Filtro: Ciudad-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Ciudad</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Mocache
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Otras ciudades
+												</div>
+											</div>
+										</div>
+										<!--Filtro: Etnia-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Etnia</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Montubio
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Mestizo
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Afroecuatoriano
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Indígena
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Blanco
+												</div>
+											</div>
+										</div>
+									</div>
+		
+									<div class="col-6">
+										<!--Filtro: Género-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Género</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Masculino
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Femenino
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Intersexual
+												</div>
+											</div>
+										</div>
+										<!--Filtro: Discapacidad-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Discapacidad</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">No
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Si
+												</div>
+											</div>
+										</div>
+										<!--Filtro: Estado civil-->
+										<div class="pb-3">
+											<p class="fw-bold m-0">Estado civíl</p>
+											<div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Soltero(a)
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Casado(a)
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Anulado(a)
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Separado(a)
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Viudo(a)
+												</div>
+												<div class="d-flex me-2">
+													<input class="form-check-input me-1" type="checkbox" value="">Unión libre
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<button type="button" class="btn btn-primary">Ver resultados</button>
+									</div>
+								</div>
+							</div>
+							<div class="col-8">
+								<div class="row">
+									<div class="col-12">
+										<table class="table table-light">
+											<thead>
+											  <tr>
+												<th scope="col">#</th>
+												<th scope="col">Cédula</th>
+												<th scope="col">Apellidos</th>
+												<th scope="col">Nombres</th>
+												<th scope="col">Teléfono</th>
+											  </tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">2</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">3</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">4</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">5</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">6</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">7</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">8</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">9</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+												<tr>
+													<th scope="row">10</th>
+													<td>0000000001</td>
+													<td>XXXXX XXXXX</td>
+													<td>XXXXX XXXXX</td>
+													<td>0999999999</td>
+												</tr>
+											</tbody>
+										</table>
+										<nav aria-label="Page navigation example">
+											<ul class="pagination justify-content-center" id="pagination-wrapper">
+												<li class="page-item"><button value="1" class="page-link">1</button></li>
+												<li class="page-item"><button value="2" class="page-link">2</button></li>
+												<li class="page-item"><button value="3" class="page-link">3</button></li>
+												<li class="page-item"><button value="4" class="page-link">4</button></li>
+												<li class="page-item"><button value="5" class="page-link">5</button></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-12">
+										<button type="button" class="btn btn-primary">Descargar xlsx</button>
+										<button type="button" class="btn btn-primary">Descargar csv</button>
+										<button type="button" class="btn btn-primary">Descargar pdf</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Fin Generador de reportes por formato-->
+</section>
+{% endblock content %}
+
+
+{% block js %}
+<script src="{% static 'vendor/echarts/echarts.min.js' %}"></script>
+<script src="{% static 'js/reportes/reporte-estudiantes.js' %}"></script>
+{% endblock js %}

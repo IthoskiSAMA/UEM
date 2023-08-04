@@ -1,0 +1,115 @@
+{% extends 'sctr_base.html' %}
+{% load static %}
+
+{% block title %}Estudiantes{% endblock title %}
+
+{% block content %}
+
+<div class="pagetitle mb-3 d-flex justify-content-between">
+	<h1>Estudiantes</h1>
+	<a class="btn btn-primary" href="{% url 'agregar-estudiante' %}">
+		<i class="bi bi-plus"></i>
+		Agregar estudiante
+	</a>
+</div>
+
+<section class="section">
+	<div class="row">
+		<!-- Estudiantes registrados -->
+		<div class="col-12">
+			<div class="card recent-sales overflow-auto">
+
+				<div class="card-body">
+					<h5 class="card-title">Registrados <span>| Total: {{ cant_estudiantes }}</span></h5>
+
+					<form id="frmBuscarEstudiante">
+						{% csrf_token %}
+						<div class="row mb-3 d-flex justify-content-end">
+							<div class="col-xl-6 col-lg-7 col-md-8 col-10">
+								<div class="d-flex">
+									<select name="selecBuscar" id="selecBuscar" class="form-select">
+										<option value="cedula" selected="">Cédula</option>
+										<option value="apellidos">Apellidos</option>
+										<option value="nombres">Nombres</option>
+									</select>
+									<input type="text" name="inputDatos" class="form-control me-2 ms-2" placeholder="Ingrese los datos" required>
+									<button type="submit" class="btn btn-primary">Buscar</button>
+								</div>
+							</div>
+						</div>
+					</form>
+
+					<table class="table" id="tableListaEstudiantes">
+						<thead class="table-dark">
+							<tr>
+								<th scope="col">Nº</th>
+								<th scope="col">Cédula</th>
+								<th scope="col">Apellidos</th>
+								<th scope="col">Nombres</th>
+								<th scope="col">Celular</th>
+								<th scope="col">Acciones</th>
+							</tr>
+						</thead>
+						<tbody id="tablebodyListaEstudiantes">
+						</tbody>
+					</table>
+
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center" id="pagination-wrapper">
+						</ul>
+					</nav>
+				</div>
+
+			</div>
+		</div><!-- End Estudiantes registrados -->
+	</div>
+</section>
+
+<!--Modal Ejecutar acciones-->
+<div class="modal fade" id="modalDeAcciones" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalDeAccionesLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<i class="fa-solid  icon-modal me-2" id="iconModalDeAcciones"></i>
+				<h5 class="modal-title" id="titleModalDeAcciones"></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p id="bodyModalDeAcciones"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-primary" id="btnAccion" data-bs-dismiss="modal"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Fin Modal Ejecutar acciones-->
+
+<!--Modal informativo-->
+<div class="modal fade" id="modalInformativo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalInformativoLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
+			<div class="modal-header">
+				<i class="fa-solid  icon-modal me-2" id="iconModalInformativo"></i>
+				<h5 class="modal-title" id="titleModalInformativo"></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<p id="bodyModalInformativo"></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+			</div>
+		</div>
+	</div>
+</div>
+<!--Fin Modal informativo-->
+
+{% endblock content %}
+
+{% block js %}
+	<script src="{% static 'js/estudiante/acciones-estudiante.js' %}"></script>
+	<script src="{% static 'js/table-build.js' %}"></script>
+	<script src="{% static 'js/estudiante/listar-estudiantes.js' %}"></script>
+{% endblock js %}

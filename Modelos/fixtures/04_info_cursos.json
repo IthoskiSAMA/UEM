@@ -1,0 +1,233 @@
+[
+    {
+        "model": "Modelos.Grado",
+        "pk": 1,
+        "fields": {
+            "nombre": "Octavo"
+        }
+    },
+    {
+        "model": "Modelos.Grado",
+        "pk": 2,
+        "fields": {
+            "nombre": "Noveno"
+        }
+    },
+    {
+        "model": "Modelos.Grado",
+        "pk": 3,
+        "fields": {
+            "nombre": "Décimo"
+        }
+    },
+    {
+        "model": "Modelos.Grado",
+        "pk": 4,
+        "fields": {
+            "nombre": "Primero"
+        }
+    },
+    {
+        "model": "Modelos.Grado",
+        "pk": 5,
+        "fields": {
+            "nombre": "Segundo"
+        }
+    },
+    {
+        "model": "Modelos.Grado",
+        "pk": 6,
+        "fields": {
+            "nombre": "Tercero"
+        }
+    },
+
+
+
+
+    {
+        "model": "Modelos.Nivel",
+        "pk": 1,
+        "fields": {
+            "nombre": "Básica Superior",
+            "abreviatura": "EGB"
+        }
+    },
+    {
+        "model": "Modelos.Nivel",
+        "pk": 2,
+        "fields": {
+            "nombre": "Bachillerato en Ciencias",
+            "abreviatura": "BC"
+        }
+    },
+    {
+        "model": "Modelos.Nivel",
+        "pk": 2,
+        "fields": {
+            "nombre": "Bachillerato Técnico",
+            "abreviatura": "BT"
+        }
+    },
+    {
+        "model": "Modelos.Nivel",
+        "pk": 3,
+        "fields": {
+            "nombre": "Bachillerato General Unificado",
+            "abreviatura": "BGUD"
+        }
+    },
+    {
+        "model": "Modelos.Nivel",
+        "pk": 4,
+        "fields": {
+            "nombre": "Bachillerato General Unificado a Distancia",
+            "abreviatura": "BGUD"
+        }
+    },
+
+
+
+
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 1,
+        "fields": {
+            "nombre": "A"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 2,
+        "fields": {
+            "nombre": "B"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 3,
+        "fields": {
+            "nombre": "C"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 4,
+        "fields": {
+            "nombre": "D"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 5,
+        "fields": {
+            "nombre": "E"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 6,
+        "fields": {
+            "nombre": "F"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 7,
+        "fields": {
+            "nombre": "G"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 8,
+        "fields": {
+            "nombre": "H"
+        }
+    },
+    {
+        "model": "Modelos.Paralelo",
+        "pk": 9,
+        "fields": {
+            "nombre": "I"
+        }
+    },
+
+
+
+
+    {
+        "model": "Modelos.Especialidad",
+        "pk": 1,
+        "fields": {
+            "nombre": "No definido"
+        }
+    },
+    {
+        "model": "Modelos.Especialidad",
+        "pk": 2,
+        "fields": {
+            "nombre": "Ciencias"
+        }
+    },
+    {
+        "model": "Modelos.Especialidad",
+        "pk": 3,
+        "fields": {
+            "nombre": "Informática"
+        }
+    },
+    {
+        "model": "Modelos.Especialidad",
+        "pk": 4,
+        "fields": {
+            "nombre": "Sistemas"
+        }
+    },
+    {
+        "model": "Modelos.Especialidad",
+        "pk": 5,
+        "fields" : {
+            "nombre": "Producción Agropecuaria"
+        }
+    },
+
+
+
+
+    {
+        "model": "Modelos.Estado",
+        "pk": 1,
+        "fields": {
+            "nombre": "En curso"
+        }
+    },
+    {
+        "model": "Modelos.Estado",
+        "pk": 2,
+        "fields": {
+            "nombre": "Aprobado"
+        }
+    },
+    {
+        "model": "Modelos.Estado",
+        "pk": 3,
+        "fields": {
+            "nombre": "Reprobado"
+        }
+    },
+    {
+        "model": "Modelos.Estado",
+        "pk": 4,
+        "fields": {
+            "nombre": "Retirado"
+        }
+    },
+    {
+        "model": "Modelos.Estado",
+        "pk": 5,
+        "fields": {
+            "nombre": "Graduado"
+        }
+    }
+]

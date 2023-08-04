@@ -1,0 +1,176 @@
+[
+    {
+        "model": "Modelos.Genero",
+        "pk": 1,
+        "fields": {
+            "nombre": "Masculino"
+        }
+    },
+    {
+        "model": "Modelos.Genero",
+        "pk": 2,
+        "fields": {
+            "nombre": "Femenino"
+        }
+    },
+    {
+        "model": "Modelos.Genero",
+        "pk": 3,
+        "fields": {
+            "nombre": "Intersexual"
+        }
+    },
+
+
+
+    
+    {
+        "model": "Modelos.EstadoCivil",
+        "pk": 1,
+        "fields": {
+            "nombre": "Soltero(a)"
+        }
+    },
+    {
+        "model": "Modelos.EstadoCivil",
+        "pk": 2,
+        "fields": {
+            "nombre": "Casado(a)"
+        }
+    },
+    {
+        "model": "Modelos.EstadoCivil",
+        "pk": 3,
+        "fields": {
+            "nombre": "Anulado(a)"
+        }
+    },
+    {
+        "model": "Modelos.EstadoCivil",
+        "pk": 4,
+        "fields": {
+            "nombre": "Separado(a)"
+        }
+    },
+    {
+        "model": "Modelos.EstadoCivil",
+        "pk": 5,
+        "fields": {
+            "nombre": "Viudo(a)"
+        }
+    },
+    {
+        "model": "Modelos.EstadoCivil",
+        "pk": 6,
+        "fields": {
+            "nombre": "Unión libre"
+        }
+    },
+
+
+    
+    {
+        "model": "Modelos.Discapacidad",
+        "pk": 1,
+        "fields": {
+            "nombre": "No"
+        }
+    },
+    {
+        "model": "Modelos.Discapacidad",
+        "pk": 2,
+        "fields": {
+            "nombre": "Si"
+        }
+    },
+
+
+
+    {
+        "model": "Modelos.Etnia",
+        "pk": 1,
+        "fields": {
+            "nombre": "Montubio"
+        }
+    },
+    {
+        "model": "Modelos.Etnia",
+        "pk": 2,
+        "fields": {
+            "nombre": "Mestizo"
+        }
+    },
+    {
+        "model": "Modelos.Etnia",
+        "pk": 3,
+        "fields": {
+            "nombre": "Afroecuatoriano"
+        }
+    },
+    {
+        "model": "Modelos.Etnia",
+        "pk": 4,
+        "fields": {
+            "nombre": "Indígena"
+        }
+    },
+    {
+        "model": "Modelos.Etnia",
+        "pk": 5,
+        "fields": {
+            "nombre": "Blanco"
+        }
+    },
+
+
+
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 1,
+        "fields": {
+            "nombre": "Madre"
+        }
+    },
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 2,
+        "fields": {
+            "nombre": "Padre"
+        }
+    },
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 3,
+        "fields": {
+            "nombre": "Hermano/a"
+        }
+    },
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 4,
+        "fields": {
+            "nombre": "Abuelo/a"
+        }
+    },
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 5,
+        "fields": {
+            "nombre": "Tío/a"
+        }
+    },
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 6,
+        "fields": {
+            "nombre": "Primo/a"
+        }
+    },
+    {
+        "model": "Modelos.Parentezco",
+        "pk": 7,
+        "fields": {
+            "nombre": "Padrastro/Madrastra"
+        }
+    }
+]

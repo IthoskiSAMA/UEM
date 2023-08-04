@@ -1,0 +1,155 @@
+{% extends 'home_base.html' %}
+{% load static %}
+
+
+{% block home_block_section %}
+	<section id="hero" class="d-flex justify-content-center align-items-center">
+		<div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+			<h1>Unidad Educativa<br>"Mocache"</h1>
+			<h2>Un colegio de vida, creando grandes historias y transformando el futuro de los jóvenes</h2>
+		</div>
+	</section>
+{% endblock home_block_section %}
+
+
+{% block home_block_main %}
+	<main id="main">
+
+		<!-- ======= Seccion sobre nosotros ======= -->
+		<section id="about" class="about">
+			<div class="container" data-aos="fade-up">
+				<div class="row">
+					<div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+						<img src="{% static 'img/uem-1.jpg' %}" class="img-fluid" alt="">
+					</div>
+					<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+						<h2><strong>¿Quiénes somos?</strong></h2>
+						<p>
+							La Unidad Educativa Mocache es una institución educativa ubicada en el cantón Mocache, en la provincia de
+							Los Ríos,
+							Ecuador. Su historia se remonta a varios años atrás, cuando se inició como un colegio en el año 1953. En
+							sus
+							primeros años, el colegio tuvo que enfrentar diversos desafíos, entre ellos, la falta de recursos y la
+							ausencia de una
+							infraestructura adecuada.
+						</p>
+						<p>
+							Es una institución pública encargada de la formación de niveles EGB hasta Bachillerato, los mismos que
+							adquieren un
+							conjunto de capacidades y responsabilidades a partir de tres valores fundamentales que
+							forman parte del perfil del bachiller ecuatoriano: la justicia, la innovación y la solidaridad.
+						</p>
+						<p>
+							Los estudiantes que terminan su formación serán capaces de continuar los estudios universitarios, además,
+							participar
+							en la vida política y social, conscientes de su rol histórico como ciudadanos del Ecuador.
+						</p>
+
+					</div>
+				</div>
+
+			</div>
+		</section><!-- Fin seccion sobre nosotros -->
+
+		<!-- ======= Seccion conteo ======= -->
+		<section id="counts" class="counts section-bg">
+			<div class="container">
+
+				<h2><strong>Periodo 2023 - 2024</strong></h2>
+
+				<div class="row counters">
+
+					<div class="col-lg-3 col-6 text-center">
+						<span data-purecounter-start="0" data-purecounter-end="1232" data-purecounter-duration="1"
+							class="purecounter">55000</span>
+						<p>Estudiantes</p>
+					</div>
+
+					<div class="col-lg-3 col-6 text-center">
+						<span data-purecounter-start="0" data-purecounter-end="64" data-purecounter-duration="1"
+							class="purecounter">56</span>
+						<p>Docentes</p>
+					</div>
+
+					<div class="col-lg-3 col-6 text-center">
+						<span data-purecounter-start="0" data-purecounter-end="42" data-purecounter-duration="1"
+							class="purecounter">40</span>
+						<p>Aulas</p>
+					</div>
+
+					<div class="col-lg-3 col-6 text-center">
+						<span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+							class="purecounter">2</span>
+						<p>Jornadas</p>
+					</div>
+
+				</div>
+
+			</div>
+		</section><!-- Fin seccion conteo -->
+
+		<!-- ======= Seccion Blogs populares ======= -->
+		<section id="popular-courses" class="courses">
+			<div class="container" data-aos="fade-up">
+
+				<h2><strong>Blogs recientes</strong></h2>
+
+				<div class="row" data-aos="zoom-in" data-aos-delay="100">
+
+					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+						<div class="course-item">
+							<img src="{% static 'img/uem-2.jpg' %}" class="img-fluid" alt="...">
+							<div class="course-content">
+								<div class="d-flex justify-content-end">
+									<p class="text-muted">Martes, 27 de marzo del 2023</p>
+								</div>
+								<h3>Trigésima Séptimas Olimpiadas 2022</h3>
+								<p>Esta mañana se llevó a cabo la inauguración de las Trigésima Séptimas Olimpiadas #2022 de la Unidad
+									Educativa Mocache.</p>
+								<p>Seguido a la presentación de los equipos uniformados se llevó a cabo la elección de la señorita
+									deportes la cual se la realizó mediante un sorteo el mismo que fue presenciado por jueces que tuvieron
+									la gran responsabilidad de elegir a la ganadora dignidad que recayó en la representante de
+									#2do_Producción_C.</p>
+							</div>
+						</div>
+					</div> <!-- End blog Item-->
+
+					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+						<div class="course-item">
+							<img src="{% static 'img/uem-3.jpg' %}" class="img-fluid" alt="...">
+							<div class="course-content">
+								<div class="d-flex justify-content-end">
+									<p class="text-muted">Martes, 27 de marzo del 2023</p>
+								</div>
+								<h3>Juramento a la bandera del Ecuador</h3>
+								<p>Hoy por la mañana estuvimos presente en el Juramento a la Bandera del Ecuador en la Unidad Educativa
+									Mocache, donde los jóvenes estudiantes de tercer año con gran entusiasmo prometieron con ferviente
+									honor defender el glorioso tricolor.</p>
+								<p>En señal de compromiso y responsabilidad, recordando que en sus manos está el futuro de la patria.
+								</p>
+							</div>
+						</div>
+					</div> <!-- End blog Item-->
+
+					<div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+						<div class="course-item">
+							<img src="{% static 'img/uem-4.jpg' %}" class="img-fluid" alt="...">
+							<div class="course-content">
+								<div class="d-flex justify-content-end">
+									<p class="text-muted">Martes, 27 de marzo del 2023</p>
+								</div>
+								<h3>Reconocimiento de méritos</h3>
+								<p>A nuestra Directora MSc.Mariana Zamora, por su gran dedicación a la niñez y juventud, desde
+									territorio un trabajo diferente con entusiasmo y sacrificio, para así favorecer una educación de
+									calidad. Unidad Educativa Mocache.</p>
+							</div>
+						</div>
+					</div> <!-- End blog Item-->
+
+				</div>
+
+			</div>
+		</section><!-- Fin Seccion Blogs populares -->
+
+	</main>
+{% endblock home_block_main %}

@@ -1,0 +1,92 @@
+[
+    {
+        "model": "Modelos.ModalidadEstudio",
+        "pk": 1,
+        "fields": {
+            "nombre": "Presencial"
+        }
+    },
+    {
+        "model": "Modelos.ModalidadEstudio",
+        "pk": 2,
+        "fields": {
+            "nombre": "Semi-Presencial"
+        }
+    },
+    {
+        "model": "Modelos.ModalidadEstudio",
+        "pk": 3,
+        "fields": {
+            "nombre": "Virtual"
+        }
+    },
+
+
+    
+    {
+        "model": "Modelos.Jornada",
+        "pk": 1,
+        "fields": {
+            "nombre": "Matutina"
+        }
+    },
+    {
+        "model": "Modelos.Jornada",
+        "pk": 2,
+        "fields": {
+            "nombre": "Vespertina"
+        }
+    },
+    {
+        "model": "Modelos.Jornada",
+        "pk": 3,
+        "fields": {
+            "nombre": "Nocturna"
+        }
+    },
+
+
+
+    {
+        "model": "Modelos.NumeroMatricula",
+        "pk": 1,
+        "fields": {
+            "nombre": "Primera"
+        }
+    },
+    {
+        "model": "Modelos.NumeroMatricula",
+        "pk": 2,
+        "fields": {
+            "nombre": "Segunda"
+        }
+    },
+    {
+        "model": "Modelos.NumeroMatricula",
+        "pk": 3,
+        "fields": {
+            "nombre": "Tercera"
+        }
+    },
+    {
+        "model": "Modelos.NumeroMatricula",
+        "pk": 4,
+        "fields": {
+            "nombre": "Cuarta"
+        }
+    },
+    {
+        "model": "Modelos.NumeroMatricula",
+        "pk": 5,
+        "fields": {
+            "nombre": "Quinta"
+        }
+    },
+    {
+        "model": "Modelos.NumeroMatricula",
+        "pk": 6,
+        "fields": {
+            "nombre": "Sexta"
+        }
+    }
+]

@@ -1,0 +1,164 @@
+[
+    {"model": "Modelos.Provincia","pk": 1,"fields": {"nombre": "Azuay"}},
+    {
+        "model": "Modelos.Provincia",
+        "pk": 2,
+        "fields": {
+            "nombre": "Bolívar"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 3,
+        "fields": {
+            "nombre": "Cañar"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 4,
+        "fields": {
+            "nombre": "Carchi"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 5,
+        "fields": {
+            "nombre": "Chimborazo"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 6,
+        "fields": {
+            "nombre": "Cotopaxi"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 7,
+        "fields": {
+            "nombre": "El Oro"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 8,
+        "fields": {
+            "nombre": "Esmeraldas"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 9,
+        "fields": {
+            "nombre": "Galápagos"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 10,
+        "fields": {
+            "nombre": "Guayas"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 11,
+        "fields": {
+            "nombre": "Imbabura"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 12,
+        "fields": {
+            "nombre": "Loja"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 13,
+        "fields": {
+            "nombre": "Los Ríos"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 14,
+        "fields": {
+            "nombre": "Manabí"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 15,
+        "fields": {
+            "nombre": "Morona Santiago"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 16,
+        "fields": {
+            "nombre": "Napo"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 17,
+        "fields": {
+            "nombre": "Orellana"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 18,
+        "fields": {
+            "nombre": "Pastaza"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 19,
+        "fields": {
+            "nombre": "Pichincha"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 20,
+        "fields": {
+            "nombre": "Santa Elena"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 21,
+        "fields": {
+            "nombre": "Santo Domingo de los Tsáchilas"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 22,
+        "fields": {
+            "nombre": "Sucumbíos"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 23,
+        "fields": {
+            "nombre": "Tungurahua"
+        }
+    },
+    {
+        "model": "Modelos.Provincia",
+        "pk": 24,
+        "fields": {
+            "nombre": "Zamora Chinchipe"
+        }
+    }
+]
